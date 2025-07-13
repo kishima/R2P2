@@ -1,3 +1,4 @@
 [submodule "lib/picoruby"]
 	path = lib/picoruby
-	url = git@github.com:picoruby/picoruby.git
+	url = https://github.com/kishima/picoruby.git
+	branch = r2p2-customizations
