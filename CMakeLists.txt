@@ -15,7 +15,8 @@ set (R2P2_VERSION   ${CMAKE_VERSION_NUMBER})
 set (R2P2_BUILDDATE ${CMAKE_BUILDDATE})
 set (R2P2_REVISION  ${CMAKE_REVISION})
 
-project("${R2P2_NAME}-${MSC_NAME}-${R2P2_VERSION}-${R2P2_BUILDDATE}-${R2P2_REVISION}")
+#project("${R2P2_NAME}-${MSC_NAME}-${R2P2_VERSION}-${R2P2_BUILDDATE}-${R2P2_REVISION}")
+project("${R2P2_NAME}-${MSC_NAME}-${R2P2_VERSION}")
 
 add_compile_options(-Wall
   # int != int32_t as far as the compiler is concerned because gcc has int32_t as long int
