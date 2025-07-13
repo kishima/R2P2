@@ -59,7 +59,11 @@ def def_r2p2_name(board)
 end
 
 def def_msc(mode)
-  '-D PICORUBY_MSC_FLASH=1 -D MSC_NAME=FLASH_MSC'
+  if ENV['MYPC']
+    '-D PICORUBY_MSC_FLASH=1 -D MSC_NAME=FLASH_MSC -D PICO_MYPC=1'
+  else
+    '-D PICORUBY_MSC_FLASH=1 -D MSC_NAME=FLASH_MSC'
+  end
 end
 
 def def_picorb_vm(vm)

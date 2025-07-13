@@ -69,6 +69,10 @@ elseif(PICO_BOARD STREQUAL "pico2" OR PICO_BOARD STREQUAL "pico2_w")
   target_compile_definitions(${PROJECT_NAME} PRIVATE FLASH_TARGET_OFFSET=0x00340000)
 endif()
 
+if(PICO_MYPC)
+  add_compile_definitions(PICO_MYPC=1)
+endif()
+
 set(PICORBC ${CMAKE_SOURCE_DIR}/lib/picoruby/bin/picorbc)
 
 add_custom_target(mrbdir ALL
@@ -109,6 +113,13 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
   hardware_claim
   mruby
 )
+
+if(PICO_MYPC)
+  add_subdirectory(lib/picoruby/mrbgems/picoruby-machine/ports/rp2040/lcdspi)
+  target_link_libraries(${PROJECT_NAME} PRIVATE
+    lcdspi
+  )
+endif()
 
 # Workaround for Pico2
 if(PICO_BOARD STREQUAL "pico" OR PICO_BOARD STREQUAL "pico_w")
